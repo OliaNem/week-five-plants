@@ -1,38 +1,259 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-background: hsl(8, 33%, 74%);
+  --color-heading: hsla(177, 23%, 17%, 0.877);
+  --color-text: hsl(180, 6%, 17%);
+  --color-text-light: hsl(0, 0%, 100%);
+  --color-button: hsl(317, 16%, 39%);
+  --color-hover-button: hsl(317, 16%, 30%);
+  --color-decoration-background: hsl(137, 16%, 61%);
+  --color-slides-background: hsl(33, 65%, 93%);
+  --selection-background-color: hsl(317, 16%, 30%);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  text-rendering: optimizelegibility;
+  display: block;
+}
+
+::selection {
+  background-color: var(--selection-background-color) !important;
+  color: var(--color-text-light) !important;
+}
+
+body {
+  font-family: 'Crimson Pro', serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+h1, h3 {
+  color: var(--color-heading);
+}
+
 .App {
+  background-color: var(--color-text-light);
+  min-height: 96vh;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* header */
+h1 {
+  padding: 20px 40px 30px 40px;
+  margin-left: 52%;
+  font-size: 3rem;
+}
+.slide-box {
+  background-color: var(--color-slides-background);
+  display: flex;
+  position: relative;
+  left: 50px;
+  z-index: 2;
+}
+.greendecoration-box {
+  width:500px;
+  height:400px;
+  background-color: var(--color-decoration-background);
+  position: absolute;
+  top: -60px;
+  left:-80px;
+}
+.slide-text {
+  font-weight: 400;
+  font-size: 1.4rem;
+  padding: 40px 40px 10px 40px;
+  margin-bottom: 0;
+}
+
+/* suggestions */
+.suggestion-section {
+  background-image: url("./assets/leaf.svg");
+  background-repeat: no-repeat;
+  background-size: 22%;
+  background-position-x: 16%;
+  background-position-y: 6%;
+  padding: 40px;
+}
+
+.suggestion-block{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-top: 20px;
+
+}
+h2 {
+  background-color: var(--color-heading);
+  color: var(--color-text-light);
+  width: 40%;
+  min-width: 300px;
   text-align: center;
+  margin: 80px auto 0 auto;
+  padding: 12px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
+  width:30%;
+  min-width: 240px;
+  margin: 20px auto;
+  padding: 6px;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  flex-grow: 2;
 }
 
-.App-link {
-  color: #61dafb;
+/* images */
+
+.image-box img{
+  position: relative;
+  top: 50px;
+  left:-30px;
+  width: 580px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.leaf-one {
+  width: 100px;
+  transform: rotate(30deg);
+  position: relative;
+  top: 20px;
+  opacity: 0.6;
+}
+
+.leaf-two {
+  width: 140px;
+  transform: scaleX(-1);  
+  position: relative;
+  left: 100px;
+}
+
+.plant-image {
+  max-width: 100%;
+}
+
+/* buttons */
+
+.remove-btn {
+  background-color: var(--color-button);
+  color: var(--color-text-light);
+  border: none;
+  padding: 6px;
+  width: 80%;
+}
+.remove-btn:hover {
+  background-color: var(--color-hover-button);
+}
+
+.btn-div {
+  margin-left: 25%;
+}
+.btn-slides {
+  background-color: transparent;
+  border: none;
+  padding: 20px;
+}
+.btn-slides:hover{
+  transform: scale(1.2); 
+}
+.btn-slides-previous {
+  transform: scaleX(-1);  
+}
+
+@media screen and (max-width: 860px) {
+  .App {
+    max-width: 760px;
+  }  
+  /* header */
+  h1 {
+    font-size: 2.2rem;
   }
-  to {
-    transform: rotate(360deg);
+  .slide-box {
+    left: 50px;
+  }
+  .greendecoration-box {
+    width:400px;
+    height:400px;
+    top: -100px;
+   }
+  .slide-text {
+    padding: 40px 40px 10px 0;
+  }
+  .btn-div {
+    margin-left: 12%;
+  }
+  .image-box img{
+    width: 500px;
+  }
+  .leaf-two {
+    width: 90px;
+    left: 100px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .App {
+    max-width: 100%;
+  }  
+  /* header */
+  h1 {
+    margin-left: 0;
+    font-size: 2.8rem;
+  }
+  .slide-box {
+    left: 0;
+    flex-direction: column;
+  }
+  .greendecoration-box {
+    display: none;
+   }
+   .slides-info {
+    align-self: center;
+   }
+  .slide-text {
+    padding: 40px 10px 10px 10px;    
+  }
+  .btn-div {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .image-box img{
+    width: 100%;
+    top: 0;
+    left:0;
+  }
+  .leaf-one {
+    display: none;
+  }
+  .leaf-two {
+    display: none;
+  }
+  h2 {
+    margin: 30px auto 0 auto;
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+  }
+  .suggestion-section {
+    padding: 30px;
+  }
+  .card {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  h1 {
+    font-size: 2.4rem;
   }
 }
